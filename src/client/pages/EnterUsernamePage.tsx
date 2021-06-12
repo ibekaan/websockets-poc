@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -19,10 +20,11 @@ const Spacer = styled.div<{ height: number }>`
 
 export const EnterUsernamePage: FC = () => {
   const [value, setValue] = useState("User 1");
+  const { push } = useHistory();
 
   return (
     <Wrapper>
-      <Form onSubmit={() => alert("Submitted")}>
+      <Form onSubmit={() => push("/welcome")}>
         <label htmlFor="username">Username</label>
         <input
           id="username"
